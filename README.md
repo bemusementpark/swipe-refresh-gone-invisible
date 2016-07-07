@@ -9,6 +9,14 @@ Curiously, at this point it is possible to interact with the SwipeRefreshLayout 
 
 Usually at this point the SwipeRefreshLayout will not respond to gestures from this point, but some strange glitching is possible with the right sequence of clicks/drags.
 
+## ListView
+
+ListView has some subtle differences. 
+
+1. A minor issue is the behaviour difference when no adapter is set. RecyclerView requires an adapter to be set for SwipeRefresh to work. ListView does not.
+
+2. More importantly, IMHO ListView doesn't mind if the first view has a height of zero. SwipeRefreshLayout doesn't work with RecyclerView with a first itemView of height 0. This is useful when loading multiple data sources when you want the RecyclerView to stay at the top of the list even when data is added at the top. This is a frequent occurence when loading from multiple sources to be shown in one RecyclerView. If we load 10 items from one API endpoint and another 10 from another, we may show a progressBar for each and either may complete first. However depending on which finishes first, the RecyclerView may scroll based on which items are added or removed first. It would be convenient if SwipeRefreshLayout behaved the same as ListView in this respect.
+
 ## ScrollView
 
 If you change each ListView to a ScrollView you will notice the same issues in addition to the issue presenting itself on visible ScrollViews with no children.
