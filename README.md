@@ -9,6 +9,12 @@ Curiously, at this point it is possible to interact with the SwipeRefreshLayout 
 
 Usually at this point the SwipeRefreshLayout will not respond to gestures from this point, but some strange glitching is possible with the right sequence of clicks/drags.
 
+The following screenshot shows a number of different states of ListView and RecyclerView.
+
+![](app.png)
+
+Each view that has a visible SwipeRefreshLayout is working as expected. You have to launch the app to see how the other views work. It would be useful of both behaved the same with zero-height-headers.
+
 ## ListView
 
 ListView has some subtle differences. 
